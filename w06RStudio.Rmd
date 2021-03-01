@@ -1,0 +1,263 @@
+---
+title: "STATISTICAL COMPUTING"
+subtitle: "Getting to know RStudio"
+author: "Austin Hart"
+institute: "American University"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, rladies, rladies-fonts]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  message=FALSE, warning=FALSE, eval = TRUE, echo = TRUE, 
+  fig.align = 'center', dev='png', dpi = 300
+)
+knitr::opts_knit$set(root.dir = "C:/Users/ahart/Documents")
+```
+
+class: inverse, right, middle
+
+# Understanding RStudio
+Our analytic workhorse
+
+
+``` {css, echo =F} 
+    .pull-left {
+      float: left;
+      width: 35%;
+    }
+
+    .pull-right {
+      float: right;
+     width: 60%;
+    }
+
+    .pull-right ~ p {
+      clear: both;
+    }
+```
+
+---
+
+# Materials and following along
+
+- To particpate during/after session, download:
+  - `womenparl.csv` dataset
+  - `quickRscript.R` script
+  
+- How to manage the screens
+  - Watch now; on your own later
+  - Execute script as I go
+  
+
+---
+
+# What is R/RStudio?
+
+- **R**
+  - Language/"environment" for statistical computing
+  - Built specifically for data analysis, graphing
+  - Easy extension via "packages"  
+  
+- **RStudio**
+  - Friendly interface for R
+  
+- **Why bother?**
+  - Powerful
+  - Community-built
+  - FREE! Free, free, free. 
+
+
+---
+
+# Think of it like a laptop
+
+- **R**: computer out of the box  
+
+- **RStudio**: your OS (Windows/MacOSX) for ease of use  
+
+- **Packages**: the "Apps"/software you add on
+
+
+
+---
+class: left,middle
+
+# Have a look around
+
+
+---
+class: inverse, right, middle
+
+# How we interact with R
+
+Basics of a session
+
+
+---
+
+# Typical analysis session in 600
+
+
+1. Download data to project folder
+
+2. Open RStudio; create new script
+  - set directory
+  - load packages
+  
+3. Write/execute code
+  - import the data to RStudio
+  - analyze, estimate, graph, etc 
+  
+4. Write up results in, e.g., Google Docs
+  
+
+---
+
+# You NEED a project folder
+
+> The working directory is a file path that sets the location for files you 
+> load into or save out of R. If you try to load a data set, R assumes that 
+> file is in your working directory. 
+
+
+```{r}
+
+# 1. Check my directory
+  getwd()
+
+# 2. Set the directory
+  setwd("~/SIS600")
+  
+# 3. Is my data in there?
+  list.files()
+```
+
+
+---
+
+# An R Script file
+
+.pull-left[
+
+- Load packages  
+
+- Set directory  
+
+- Import data  
+
+- Analysis...
+
+]
+
+.pull-right[
+
+```{r scripting, eval = FALSE}
+# PS 2, SIS600
+# A. Hart
+# ------------
+
+# Activate packages
+  library(tidyverse)
+
+# Set directory
+  setwd("~/SIS600")
+  
+# Load data
+  load("DCPS testing.rdata")
+  
+# Q1: Mean of ProfLang
+  summary(dcps$ProfLang)
+```
+
+]
+
+
+---
+
+# End of a session
+
+- Save your script file!
+
+- Typically no need to save the data
+
+- We'll never need to save the "workspace"
+
+
+---
+
+# Coping with R
+
+What to do when things go wrong?
+
+- Check your script for errors/typos
+
+- Check the R Guidebook!
+
+- Search online (beware the rabbit hole)
+
+- Ask questions effectively
+  - Describe your issue and remedies attempted
+  - Send screenshot/text of error message/etc
+
+
+---
+class: inverse, right, middle
+
+# Quick example
+Summary stats
+
+---
+
+# Women's representation in parliament
+
+> `womenparl.csv`: Cross-national data on women's representation (percentage of seats held by women in lower house of national parliament).
+
+- How many variables/obs in the data? 
+
+- What percentage use a PR system?
+
+- Describe data on `WomenParliament`
+  - Present a graph 
+  - Sentence or two with appropriate summary stats.  
+
+
+---
+
+# Extra credit!
+
+> Is women's representation higher on average in PR systems than in non&ndash;PR systems? 
+
+Extra credit point if you email me with:  
+
+- Appropriate graph (1) of the group comparison (PR vs non&ndash;PR)  
+
+- Short paragraph describing the difference with reference to appropriate summary statistics.  
+
+- Replication code you used for the graph/calculations
+
+
+2 points if you format the graph professionally!
+
+
+---
+class: inverse, middle
+
+# Coming March 15!
+
+- Workshop: racial resentment
+  - Read Tesler chapters
+  - Answer workshop prep questions  
+  
+- R skills builder quiz
+  - Available on Blackboard
+  - Attempt up to five (5) times
+
+

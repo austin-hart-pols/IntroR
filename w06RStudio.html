@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>STATISTICAL COMPUTING</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Austin Hart" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# STATISTICAL COMPUTING
+## Getting to know RStudio
+### Austin Hart
+### American University
+
+---
+
+
+
+
+class: inverse, right, middle
+
+# Understanding RStudio
+Our analytic workhorse
+
+
+&lt;style type="text/css"&gt;
+    .pull-left {
+      float: left;
+      width: 35%;
+    }
+
+    .pull-right {
+      float: right;
+     width: 60%;
+    }
+
+    .pull-right ~ p {
+      clear: both;
+    }
+&lt;/style&gt;
+
+---
+
+# Materials and following along
+
+- To particpate during/after session, download:
+  - `womenparl.csv` dataset
+  - `quickRscript.R` script
+  
+- How to manage the screens
+  - Watch now; on your own later
+  - Execute script as I go
+  
+
+---
+
+# What is R/RStudio?
+
+- **R**
+  - Language/"environment" for statistical computing
+  - Built specifically for data analysis, graphing
+  - Easy extension via "packages"  
+  
+- **RStudio**
+  - Friendly interface for R
+  
+- **Why bother?**
+  - Powerful
+  - Community-built
+  - FREE! Free, free, free. 
+
+
+---
+
+# Think of it like a laptop
+
+- **R**: computer out of the box  
+
+- **RStudio**: your OS (Windows/MacOSX) for ease of use  
+
+- **Packages**: the "Apps"/software you add on
+
+
+
+---
+class: left,middle
+
+# Have a look around
+
+
+---
+class: inverse, right, middle
+
+# How we interact with R
+
+Basics of a session
+
+
+---
+
+# Typical analysis session in 600
+
+
+1. Download data to project folder
+
+2. Open RStudio; create new script
+  - set directory
+  - load packages
+  
+3. Write/execute code
+  - import the data to RStudio
+  - analyze, estimate, graph, etc 
+  
+4. Write up results in, e.g., Google Docs
+  
+
+---
+
+# You NEED a project folder
+
+&gt; The working directory is a file path that sets the location for files you 
+&gt; load into or save out of R. If you try to load a data set, R assumes that 
+&gt; file is in your working directory. 
+
+
+
+```r
+# 1. Check my directory
+  getwd()
+```
+
+```
+## [1] "C:/Users/ahart/Documents"
+```
+
+```r
+# 2. Set the directory
+  setwd("~/SIS600")
+  
+# 3. Is my data in there?
+  list.files()
+```
+
+```
+## [1] "biopics.xls"        "DCPS testing.RData" "quickRscript.R"    
+## [4] "womenparl.csv"
+```
+
+
+---
+
+# An R Script file
+
+.pull-left[
+
+- Load packages  
+
+- Set directory  
+
+- Import data  
+
+- Analysis...
+
+]
+
+.pull-right[
+
+
+```r
+# PS 2, SIS600
+# A. Hart
+# ------------
+
+# Activate packages
+  library(tidyverse)
+
+# Set directory
+  setwd("~/SIS600")
+  
+# Load data
+  load("DCPS testing.rdata")
+  
+# Q1: Mean of ProfLang
+  summary(dcps$ProfLang)
+```
+
+]
+
+
+---
+
+# End of a session
+
+- Save your script file!
+
+- Typically no need to save the data
+
+- We'll never need to save the "workspace"
+
+
+---
+
+# Coping with R
+
+What to do when things go wrong?
+
+- Check your script for errors/typos
+
+- Check the R Guidebook!
+
+- Search online (beware the rabbit hole)
+
+- Ask questions effectively
+  - Describe your issue and remedies attempted
+  - Send screenshot/text of error message/etc
+
+
+---
+class: inverse, right, middle
+
+# Quick example
+Summary stats
+
+---
+
+# Women's representation in parliament
+
+&gt; `womenparl.csv`: Cross-national data on women's representation (percentage of seats held by women in lower house of national parliament).
+
+- How many variables/obs in the data? 
+
+- What percentage use a PR system?
+
+- Describe data on `WomenParliament`
+  - Present a graph 
+  - Sentence or two with appropriate summary stats.  
+
+
+---
+
+# Extra credit!
+
+&gt; Is women's representation higher on average in PR systems than in non&amp;ndash;PR systems? 
+
+Extra credit point if you email me with:  
+
+- Appropriate graph (1) of the group comparison (PR vs non&amp;ndash;PR)  
+
+- Short paragraph describing the difference with reference to appropriate summary statistics.  
+
+- Replication code you used for the graph/calculations
+
+
+2 points if you format the graph professionally!
+
+
+---
+class: inverse, middle
+
+# Coming March 15!
+
+- Workshop: racial resentment
+  - Read Tesler chapters
+  - Answer workshop prep questions  
+  
+- R skills builder quiz
+  - Available on Blackboard
+  - Attempt up to five (5) times
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
