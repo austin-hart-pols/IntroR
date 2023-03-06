@@ -13,62 +13,51 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # STATISTICAL COMPUTING
+]
+.subtitle[
 ## Getting to know RStudio
+]
+.author[
 ### Austin Hart
+]
+.institute[
 ### American University
+]
 
 ---
 
 
 
 
-class: inverse, right, middle
 
 # Understanding RStudio
-Our analytic workhorse
+### Our analytic workhorse
+
+- To participate, download:
+  - `QoG600.Rdata` data
+  - `DCPS testing.rdata` data
+  
+- For later: you need the R Survival Guide
 
 
 &lt;style type="text/css"&gt;
-    .pull-left {
-      float: left;
-      width: 35%;
-    }
-
-    .pull-right {
-      float: right;
-     width: 60%;
-    }
-
-    .pull-right ~ p {
-      clear: both;
-    }
+.right-column{
+  padding-top: 0;
+}
 &lt;/style&gt;
 
----
-
-# Materials and following along
-
-- To particpate during/after session, download:
-  - `womenparl.csv` dataset
-  - `quickRscript.R` script
-  
-- How to manage the screens
-  - Watch now; on your own later
-  - Execute script as I go
-  
 
 ---
 
 # What is R/RStudio?
 
-- **R**
-  - Language/"environment" for statistical computing
-  - Built specifically for data analysis, graphing
-  - Easy extension via "packages"  
+- **R**: Language/"environment" for stat computing
+  - Built for data analysis, graphing
+  - Easy extension via user-written "packages"  
   
-- **RStudio**
-  - Friendly interface for R
+- **RStudio**: Friendly interface for R
   
 - **Why bother?**
   - Powerful
@@ -89,39 +78,36 @@ Our analytic workhorse
 
 
 ---
-class: left,middle
-
 # Have a look around
 
+- Fire up RStudio
+  
+- Install necessary packages (`tidyverse`, `stargazer`)
+  
+- Execute a line of code
+  
+- Close out
+
 
 ---
-class: inverse, right, middle
-
-# How we interact with R
-
-Basics of a session
-
-
----
-
 # Typical analysis session in 600
 
-
-1. Download data to project folder
-
-2. Open RStudio; create new script
-  - set directory
-  - load packages
+- Download data to project folder
   
-3. Write/execute code
+- Open RStudio; create new script
+  
+- Write/execute code
+  - load packages
+  - set working directory
   - import the data to RStudio
   - analyze, estimate, graph, etc 
   
-4. Write up results in, e.g., Google Docs
+- Write up results
+  
+- Close the session
   
 
 ---
-
 # You NEED a project folder
 
 &gt; The working directory is a file path that sets the location for files you 
@@ -129,35 +115,35 @@ Basics of a session
 &gt; file is in your working directory. 
 
 
+.pull-left[
+- I downloaded my data  
+  
+- Saved it in a special folder `Documents/SIS600`  
+  
+- Can I find it?
+]
+
+.pull-right[
+
+
 
 ```r
 # 1. Check my directory
   getwd()
-```
 
-```
-## [1] "C:/Users/ahart/Documents"
-```
-
-```r
-# 2. Set the directory
+# 2. Set my directory
   setwd("~/SIS600")
   
 # 3. Is my data in there?
   list.files()
 ```
-
-```
-## [1] "biopics.xls"        "DCPS testing.RData" "quickRscript.R"    
-## [4] "womenparl.csv"
-```
-
+]
 
 ---
 
 # An R Script file
 
-.pull-left[
+.left-column[
 
 - Load packages  
 
@@ -169,25 +155,22 @@ Basics of a session
 
 ]
 
-.pull-right[
+.right_column[
 
 
 ```r
-# PS 2, SIS600
-# A. Hart
-# ------------
-
-# Activate packages
-  library(tidyverse)
-
-# Set directory
-  setwd("~/SIS600")
+  # My first R script
+  # A. Hart
+  # .................
   
-# Load data
-  load("DCPS testing.rdata")
-  
-# Q1: Mean of ProfLang
-  summary(dcps$ProfLang)
+  # Setup
+    library(tidyverse)
+    setwd("~/SIS600")
+    load("DCPS testing.rdata")
+    
+  # Q1: Describe ProfLang
+    summary(dcps$ProfLang)
+    hist(dcps$ProfLang)
 ```
 
 ]
@@ -197,11 +180,11 @@ Basics of a session
 
 # End of a session
 
-- Save your script file!
+- Save your script!
 
 - Typically no need to save the data
 
-- We'll never need to save the "workspace"
+- No need to save the "workspace"
 
 
 ---
@@ -214,64 +197,12 @@ What to do when things go wrong?
 
 - Check the R Guidebook!
 
-- Search online (beware the rabbit hole)
-
 - Ask questions effectively
   - Describe your issue and remedies attempted
   - Send screenshot/text of error message/etc
-
-
----
-class: inverse, right, middle
-
-# Quick example
-Summary stats
-
----
-
-# Women's representation in parliament
-
-&gt; `womenparl.csv`: Cross-national data on women's representation (percentage of seats held by women in lower house of national parliament).
-
-- How many variables/obs in the data? 
-
-- What percentage use a PR system?
-
-- Describe data on `WomenParliament`
-  - Present a graph 
-  - Sentence or two with appropriate summary stats.  
-
-
----
-
-# Extra credit!
-
-&gt; Is women's representation higher on average in PR systems than in non&amp;ndash;PR systems? 
-
-Extra credit point if you email me with:  
-
-- Appropriate graph (1) of the group comparison (PR vs non&amp;ndash;PR)  
-
-- Short paragraph describing the difference with reference to appropriate summary statistics.  
-
-- Replication code you used for the graph/calculations
-
-
-2 points if you format the graph professionally!
-
-
----
-class: inverse, middle
-
-# Coming March 15!
-
-- Workshop: racial resentment
-  - Read Tesler chapters
-  - Answer workshop prep questions  
   
-- R skills builder quiz
-  - Available on Blackboard
-  - Attempt up to five (5) times
+- Check online
+
 
 
     </textarea>
@@ -280,7 +211,8 @@ class: inverse, middle
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -321,6 +253,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
