@@ -1,6 +1,7 @@
-# -------------------
-# First analysis
-# A. Hart
+#++++++++++++++++++++++++++++
+#+ First analysis
+#+ A. Hart
+
 
 # Setup (2.4 - 2.5)
   library(tidyverse)
@@ -14,7 +15,7 @@
 # Explore your data --------------
 ## Survival Guide 4.2
  
-  head(wdata) # first few rows
+  head(wdata) # see first few rows
   
   names(wdata) # variable names
   
@@ -26,14 +27,12 @@
   
 # Describe data on women in parliament (women.in.parl)
   summary(wdata$women.in.parl)
-    # syntax: summary(data.name$variable.name)
-    # try it for the whole frame: summary(wdata)
+    # syntax: summary(data$variable)
 
   summarise(wdata, # data
-    WIP.avg = mean(women.in.parl, na.rm = T), # always add `na.rm=T`
-    WIP.sd = sd(women.in.parl, na.rm = T)
+    Wavg = mean(women.in.parl, na.rm = T), # always add `na.rm=T`
+    Wsd = sd(women.in.parl, na.rm = T)
   )
-    # a customizable approach using the pipe `%>%`
   
 # Visualize the dist
   hist(wdata$women.in.parl, xlab = '% seats held', main = 'Women in parliament, 2023')
@@ -47,8 +46,8 @@
   group_by(wdata, pr.system) %>%
     summarise(
       n = n(),
-      wipAvg = mean(women.in.parl, na.rm = T),
-      wipMed = median(women.in.parl, na.rm = T)
+      wip.avg = mean(women.in.parl, na.rm = T),
+      wip.med = median(women.in.parl, na.rm = T)
     )
   
 # Visualize
