@@ -31,6 +31,12 @@ class: center, middle, inverse, title-slide
 
 
 
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 25px;
+    padding: 1em 4em 1em 4em;
+}
+&lt;/style&gt;
 
 # Understanding RStudio
 ### Our analytic workhorse
@@ -53,9 +59,9 @@ class: center, middle, inverse, title-slide
 
 # What is R/RStudio?
 
-- **R**: Language/"environment" for stat computing
+- **R**: "environment" for stat computing
   - Built for data analysis, graphing
-  - Easy extension via user-written "packages"  
+  - Easy extension via user-written *packages*  
   
 - **RStudio**: Friendly interface for R
   
@@ -73,7 +79,7 @@ class: center, middle, inverse, title-slide
 
 - **RStudio**: your OS (Windows/MacOSX) for ease of use  
 
-- **Packages**: the "Apps"/software you add on
+- **Packages**: the Apps or software you install
 
 
 
@@ -143,7 +149,7 @@ class: center, middle, inverse, title-slide
 
 # An R Script file
 
-.left-column[
+.pull-left[
 
 - Load packages  
 
@@ -155,13 +161,13 @@ class: center, middle, inverse, title-slide
 
 ]
 
-.right_column[
+.pull-right[
 
 
 ```r
-  # My first R script
-  # A. Hart
-  # .................
+  #+  My first R script
+  #+  A. Hart
+  #++++++++++++++++++++
   
   # Setup
     library(tidyverse)
@@ -184,7 +190,7 @@ class: center, middle, inverse, title-slide
 
 - Typically no need to save the data
 
-- No need to save the "workspace"
+- Do not save the "workspace"
 
 
 ---
