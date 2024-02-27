@@ -1,24 +1,22 @@
-#++++++++++++++++++++++++++++
 #+ First analysis
 #+ A. Hart
 
-
-# Setup (2.4 - 2.5)
+# Beginning a script -------------
+## Load pacakges
   library(tidyverse)
   library(stargazer)
+
+## Set directory
   setwd("your directory goes here")
   
-# Load data (4.1)
+## Load data (4.1)
   load('womenparl.Rdata')
 
   
 # Explore your data --------------
 ## Survival Guide 4.2
- 
   head(wdata) # see first few rows
-  
   names(wdata) # variable names
-  
   summary(wdata) # basic summary stats
   
 
@@ -29,13 +27,18 @@
   summary(wdata$women.in.parl)
     # syntax: summary(data$variable)
 
-  summarise(wdata, # data
+  summarize(wdata, # data
     Wavg = mean(women.in.parl, na.rm = T), # always add `na.rm=T`
     Wsd = sd(women.in.parl, na.rm = T)
   )
   
 # Visualize the dist
-  hist(wdata$women.in.parl, xlab = '% seats held', main = 'Women in parliament, 2023')
+  hist(
+    wdata$women.in.parl, 
+    xlab = '% seats held', 
+    main = 'Women in parliament, 2023'
+  )
+  
   boxplot(wdata$women.in.parl, horizontal = TRUE)  
   
   
@@ -43,7 +46,7 @@
 ## Survival Guide 5.3
   
 # Compare group means
-  group_by(wdata, pr.system) %>%
+  group_by(wdata, pr.system) |>
     summarise(
       n = n(),
       wip.avg = mean(women.in.parl, na.rm = T),
@@ -54,7 +57,11 @@
   boxplot(women.in.parl ~ pr.system, data = wdata)  
   
 # Test Rule's hypothesis
-  t.test(women.in.parl ~ pr.system, data = wdata, alternative='greater')
+  t.test(
+    women.in.parl ~ pr.system, 
+    data = wdata, 
+    alternative='greater'
+  )
   
  
 # Regression ---------------------
@@ -79,7 +86,8 @@
   
 # Describe use of proportional representation
   tab1 = 
-    count(wdata, pr.system) %>%  # creates freq table
+    wdata |>
+    count(pr.system) |>  # creates freq table
     mutate(Percent = 100 * n/sum(n))
   # last line calculates n as relative freq
   
